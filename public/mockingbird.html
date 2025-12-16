@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mockingbird — BoringOS</title>
+    <meta name="description" content="Everything you need. Nothing you don't. Browser, email, office, photos, videos, music, games. All installed. All ready.">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #0a0a0a;
+            --white: #fafafa;
+            --gray-100: #f5f5f5;
+            --gray-200: #e5e5e5;
+            --gray-400: #a3a3a3;
+            --gray-600: #525252;
+            --tennessee-orange: #FF6B00;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--white);
+            color: var(--black);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1.25rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(250, 250, 250, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 100;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .nav-logo {
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            text-decoration: none;
+            color: var(--black);
+        }
+
+        .nav-logo span {
+            color: var(--tennessee-orange);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray-600);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--black);
+        }
+
+        .nav-cta {
+            background: var(--black);
+            color: var(--white) !important;
+            padding: 0.6rem 1.25rem;
+            border-radius: 6px;
+        }
+
+        .hero {
+            padding: 10rem 2rem 6rem;
+            text-align: center;
+            background: linear-gradient(180deg, var(--white) 0%, var(--gray-100) 100%);
+        }
+
+        .hero-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--tennessee-orange);
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--gray-600);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .section {
+            padding: 5rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .section-alt {
+            background: var(--gray-100);
+            max-width: 100%;
+        }
+
+        .section-alt .section-inner {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .section h2 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+        }
+
+        .section p {
+            font-size: 1.1rem;
+            color: var(--gray-600);
+            margin-bottom: 2rem;
+        }
+
+        .screenshot {
+            width: 100%;
+            border-radius: 12px;
+            border: 1px solid var(--gray-200);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            background: var(--gray-100);
+            aspect-ratio: 16/10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-400);
+            font-size: 0.9rem;
+        }
+
+        /* Under the Hood - Technical */
+        .tech-section {
+            padding: 5rem 2rem;
+            background: var(--gray-100);
+        }
+
+        .tech-inner {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .tech-section h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .tech-section > .tech-inner > p {
+            color: var(--gray-600);
+            margin-bottom: 2rem;
+        }
+
+        .tech-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--gray-200);
+        }
+
+        .tech-table th,
+        .tech-table td {
+            padding: 1rem 1.25rem;
+            text-align: left;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .tech-table th {
+            background: var(--gray-100);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--gray-600);
+        }
+
+        .tech-table td {
+            font-size: 0.95rem;
+        }
+
+        .tech-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .tech-table td:first-child {
+            color: var(--gray-600);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 2rem;
+            background: var(--black);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 2rem;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--white);
+            color: var(--black);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        footer {
+            padding: 3rem 2rem;
+            background: var(--black);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 0.5rem;
+        }
+
+        footer a {
+            color: rgba(255,255,255,0.5);
+        }
+
+        footer a:hover {
+            color: var(--white);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hero {
+                padding: 8rem 1.5rem 4rem;
+            }
+            .section {
+                padding: 3rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="/" class="nav-logo">BoringOS<span>.</span></a>
+        <div class="nav-links">
+            <a href="/what-is-this">What is this?</a>
+            <a href="/mockingbird">Mockingbird</a>
+            <a href="#download" class="nav-cta">Download</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <p class="hero-label">Mockingbird Release</p>
+        <h1>Everything you need.<br>Nothing you don't.</h1>
+        <p>The complete package. Browser, email, office, photos, videos, music, games. All installed. All ready.</p>
+    </section>
+
+    <!-- Browse -->
+    <section class="section">
+        <h2>This is how you browse the internet.</h2>
+        <p>Click the browser. Type a website. That's it.</p>
+        <div class="screenshot">[Screenshot: Firefox open to a webpage]</div>
+    </section>
+
+    <!-- Email -->
+    <section class="section section-alt">
+        <div class="section-inner">
+            <h2>This is how you check email.</h2>
+            <p>Works with Gmail. Works with Yahoo. Works with Outlook. Works with anything.</p>
+            <div class="screenshot">[Screenshot: Thunderbird inbox]</div>
+        </div>
+    </section>
+
+    <!-- Documents -->
+    <section class="section">
+        <h2>This is how you write a document.</h2>
+        <p>Opens Word files. Saves Word files. Your boss won't know the difference.</p>
+        <div class="screenshot">[Screenshot: LibreOffice Writer]</div>
+    </section>
+
+    <!-- Spreadsheets -->
+    <section class="section section-alt">
+        <div class="section-inner">
+            <h2>This is how you make a spreadsheet.</h2>
+            <p>Opens Excel files. Saves Excel files. Your accountant won't know the difference.</p>
+            <div class="screenshot">[Screenshot: LibreOffice Calc]</div>
+        </div>
+    </section>
+
+    <!-- Photos -->
+    <section class="section">
+        <h2>This is how you view photos.</h2>
+        <p>Click a photo. It opens. Zoom. Scroll. Done.</p>
+        <div class="screenshot">[Screenshot: Loupe photo viewer]</div>
+    </section>
+
+    <!-- Videos -->
+    <section class="section section-alt">
+        <div class="section-inner">
+            <h2>This is how you watch a video.</h2>
+            <p>Click a video. It plays.</p>
+            <div class="screenshot">[Screenshot: Celluloid video player]</div>
+        </div>
+    </section>
+
+    <!-- Music -->
+    <section class="section">
+        <h2>This is how you listen to music.</h2>
+        <p>Your MP3s. Your albums. Your playlists. No subscription required.</p>
+        <div class="screenshot">[Screenshot: Rhythmbox music player]</div>
+    </section>
+
+    <!-- Files -->
+    <section class="section section-alt">
+        <div class="section-inner">
+            <h2>This is how you find your files.</h2>
+            <p>Documents here. Pictures here. Downloads here. Exactly where you'd expect.</p>
+            <div class="screenshot">[Screenshot: Files app]</div>
+        </div>
+    </section>
+
+    <!-- Apps -->
+    <section class="section">
+        <h2>This is how you install an app.</h2>
+        <p>Search. Click Install. Done. Thousands available.</p>
+        <div class="screenshot">[Screenshot: GNOME Software]</div>
+    </section>
+
+    <!-- Games -->
+    <section class="section section-alt">
+        <div class="section-inner">
+            <h2>This is how you play a game.</h2>
+            <p>Chess. Solitaire. Sudoku. Already installed. No ads. No accounts.</p>
+            <div class="screenshot">[Screenshot: Chess game]</div>
+        </div>
+    </section>
+
+    <!-- Kids -->
+    <section class="section">
+        <h2>This is how your kid learns.</h2>
+        <p>100+ educational activities. Math. Reading. Puzzles. No ads. No in-app purchases.</p>
+        <div class="screenshot">[Screenshot: GCompris]</div>
+    </section>
+
+    <!-- Under the Hood -->
+    <section class="tech-section">
+        <div class="tech-inner">
+            <h2>Under the hood.</h2>
+            <p>For the curious. You don't need to know any of this.</p>
+            <table class="tech-table">
+                <thead>
+                    <tr>
+                        <th>What you experience</th>
+                        <th>What's actually happening</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Smooth graphics</td>
+                        <td>GNOME 49 with Wayland and triple buffering</td>
+                    </tr>
+                    <tr>
+                        <td>Fast boot</td>
+                        <td>EROFS compressed filesystem</td>
+                    </tr>
+                    <tr>
+                        <td>Updates you can undo</td>
+                        <td>Atomic rpm-ostree with automatic rollback</td>
+                    </tr>
+                    <tr>
+                        <td>Apps that can't break your system</td>
+                        <td>Flatpak sandboxing</td>
+                    </tr>
+                    <tr>
+                        <td>Longer laptop battery</td>
+                        <td>Kernel power optimizations</td>
+                    </tr>
+                    <tr>
+                        <td>Works on old computers</td>
+                        <td>No TPM or Secure Boot required</td>
+                    </tr>
+                    <tr>
+                        <td>Voice typing</td>
+                        <td>Offline speech-to-text</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section" id="download">
+        <h2>Ready?</h2>
+        <p>15 minutes. One USB drive. Free forever.</p>
+        <a href="#" class="cta-btn">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            Download Mockingbird
+        </a>
+    </section>
+
+    <footer>
+        <p>BoringOS: Mockingbird. Free and open source.</p>
+        <p>Built with <a href="https://universal-blue.org">Universal Blue</a> and <a href="https://blue-build.org">BlueBuild</a>, based on <a href="https://fedoraproject.org">Fedora</a>.</p>
+        <p>Curated by Cody Boring in Tennessee.</p>
+    </footer>
+
+</body>
+</html>

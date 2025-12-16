@@ -1,0 +1,23 @@
+{
+  "name": "boringos-site",
+  "version": "1.0.0",
+  "description": "Marketing website for BoringOS - Your computer, minus the nonsense",
+  "scripts": {
+    "dev": "npx serve public -p 3000",
+    "preview": "npx serve public -p 3000",
+    "check-links": "npx linkinator public/index.html --recurse"
+  },
+  "keywords": [
+    "boringos",
+    "linux",
+    "operating-system",
+    "fedora",
+    "universal-blue"
+  ],
+  "author": "Cody Boring",
+  "license": "MIT",
+  "devDependencies": {},
+  "engines": {
+    "node": ">=18"
+  }
+}

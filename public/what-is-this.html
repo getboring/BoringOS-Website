@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is BoringOS?</title>
+    <meta name="description" content="Same computer. Better software. BoringOS replaces Windows with something that just works. No ads. No accounts. Free forever.">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #0a0a0a;
+            --white: #fafafa;
+            --gray-100: #f5f5f5;
+            --gray-200: #e5e5e5;
+            --gray-400: #a3a3a3;
+            --gray-600: #525252;
+            --tennessee-orange: #FF6B00;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--white);
+            color: var(--black);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1.25rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(250, 250, 250, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 100;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .nav-logo {
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            text-decoration: none;
+            color: var(--black);
+        }
+
+        .nav-logo span {
+            color: var(--tennessee-orange);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray-600);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--black);
+        }
+
+        .nav-cta {
+            background: var(--black);
+            color: var(--white) !important;
+            padding: 0.6rem 1.25rem;
+            border-radius: 6px;
+        }
+
+        .hero {
+            padding: 10rem 2rem 5rem;
+            text-align: center;
+            background: linear-gradient(180deg, var(--white) 0%, var(--gray-100) 100%);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 span {
+            color: var(--tennessee-orange);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--gray-600);
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
+        .section {
+            padding: 5rem 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .section-alt {
+            background: var(--gray-100);
+            max-width: 100%;
+        }
+
+        .section-alt .section-inner {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .section h2 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+
+        .section p {
+            font-size: 1.1rem;
+            color: var(--gray-600);
+            margin-bottom: 1.5rem;
+        }
+
+        .section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .screenshot {
+            width: 100%;
+            border-radius: 12px;
+            border: 1px solid var(--gray-200);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            background: var(--gray-100);
+            aspect-ratio: 16/10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-400);
+            font-size: 0.9rem;
+            margin-top: 2rem;
+        }
+
+        /* Comparison Grid */
+        .compare-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .compare-card {
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--gray-200);
+        }
+
+        .compare-card.bad {
+            background: #fef2f2;
+            border-color: #fecaca;
+        }
+
+        .compare-card.good {
+            background: #f0fdf4;
+            border-color: #bbf7d0;
+        }
+
+        .compare-card h3 {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+        }
+
+        .compare-card.bad h3 {
+            color: #dc2626;
+        }
+
+        .compare-card.good h3 {
+            color: #16a34a;
+        }
+
+        .compare-card ul {
+            list-style: none;
+        }
+
+        .compare-card li {
+            padding: 0.5rem 0;
+            font-size: 0.95rem;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .compare-card li:last-child {
+            border-bottom: none;
+        }
+
+        /* Steps */
+        .steps {
+            margin-top: 2rem;
+        }
+
+        .step {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .step-num {
+            width: 36px;
+            height: 36px;
+            background: var(--black);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .step-text h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .step-text p {
+            font-size: 0.95rem;
+            color: var(--gray-600);
+            margin-bottom: 0;
+        }
+
+        /* FAQ */
+        .faq-item {
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-item h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .faq-item p {
+            margin-bottom: 0;
+        }
+
+        /* CTA */
+        .cta-section {
+            padding: 6rem 2rem;
+            background: var(--black);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .cta-section p {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--white);
+            color: var(--black);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        footer {
+            padding: 3rem 2rem;
+            background: var(--black);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 0.5rem;
+        }
+
+        footer a {
+            color: rgba(255,255,255,0.5);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hero {
+                padding: 8rem 1.5rem 4rem;
+            }
+            .section {
+                padding: 3rem 1.5rem;
+            }
+            .compare-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="/" class="nav-logo">BoringOS<span>.</span></a>
+        <div class="nav-links">
+            <a href="/what-is-this">What is this?</a>
+            <a href="/mockingbird">Mockingbird</a>
+            <a href="#download" class="nav-cta">Download</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Same computer<span>.</span><br>Better software<span>.</span></h1>
+        <p>That's it. That's the whole idea.</p>
+    </section>
+
+    <!-- What You See -->
+    <section class="section">
+        <h2>This is what you see when you turn it on.</h2>
+        <p>A desktop. A dock. Your apps. Nothing else.</p>
+        <p>No tiles. No ads. No "Sign in to continue."</p>
+        <div class="screenshot">[Screenshot: Clean BoringOS desktop]</div>
+    </section>
+
+    <!-- What You Click -->
+    <section class="section section-alt">
+        <div class="section-inner">
+            <h2>This is what you click to browse the internet.</h2>
+            <p>Same as always. Google works. YouTube works. Amazon works. Your bank works.</p>
+            <div class="screenshot">[Screenshot: Firefox showing a website]</div>
+        </div>
+    </section>
+
+    <!-- Your Files -->
+    <section class="section">
+        <h2>These are your files.</h2>
+        <p>Documents here. Pictures here. Downloads here.</p>
+        <p>Copy them over. They work the same.</p>
+        <div class="screenshot">[Screenshot: Files app]</div>
+    </section>
+
+    <!-- Your Documents -->
+    <section class="section section-alt">
+        <div class="section-inner">
+            <h2>This is a Word document.</h2>
+            <p>Click it. It opens. Edit it. Save it. Send it to your boss.</p>
+            <p>They'll never know.</p>
+            <div class="screenshot">[Screenshot: LibreOffice Writer with .docx]</div>
+        </div>
+    </section>
+
+    <!-- What's Different -->
+    <section class="section">
+        <h2>What's different?</h2>
+        <p>Not the way you use it. What's gone.</p>
+        <div class="compare-grid">
+            <div class="compare-card bad">
+                <h3>Windows</h3>
+                <ul>
+                    <li>Ads in the Start menu</li>
+                    <li>"Sign in with Microsoft"</li>
+                    <li>"Restart to update"</li>
+                    <li>"Your PC doesn't meet requirements"</li>
+                    <li>"Give Edge a chance"</li>
+                    <li>Virus warnings</li>
+                </ul>
+            </div>
+            <div class="compare-card good">
+                <h3>BoringOS</h3>
+                <ul>
+                    <li>No ads</li>
+                    <li>No account required</li>
+                    <li>Update when you want</li>
+                    <li>Works on old computers</li>
+                    <li>No nagging</li>
+                    <li>Doesn't get viruses</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Question -->
+    <section class="section section-alt">
+        <div class="section-inner">
+            <h2>"Do I have to delete Windows?"</h2>
+            <p>Yes.</p>
+            <p>But you deleted Windows when you bought an iPhone. You deleted Windows when you got a Mac. You deleted Windows when you bought a Chromebook.</p>
+            <p>Windows is one option. It's not the only option.</p>
+        </div>
+    </section>
+
+    <!-- Is This Hard -->
+    <section class="section">
+        <h2>"Is this hard?"</h2>
+        <p>Five questions. Ten minutes.</p>
+        <div class="steps">
+            <div class="step">
+                <div class="step-num">1</div>
+                <div class="step-text">
+                    <h4>Download the file</h4>
+                    <p>Click the button. It's free.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <div class="step-text">
+                    <h4>Copy it to a USB drive</h4>
+                    <p>Use Balena Etcher. Three clicks.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <div class="step-text">
+                    <h4>Restart with USB plugged in</h4>
+                    <p>Your computer boots from the USB.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">4</div>
+                <div class="step-text">
+                    <h4>Answer 5 questions</h4>
+                    <p>Language. Time zone. Your name. A password. Which drive.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">5</div>
+                <div class="step-text">
+                    <h4>Done</h4>
+                    <p>Your computer now runs BoringOS.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section-alt">
+        <div class="section-inner">
+            <h2>Still not sure?</h2>
+            <div class="faq-item">
+                <h3>"What about my printer?"</h3>
+                <p>Plug it in. It probably just works.</p>
+            </div>
+            <div class="faq-item">
+                <h3>"What if I hate it?"</h3>
+                <p>You can reinstall Windows. But you probably won't want to.</p>
+            </div>
+            <div class="faq-item">
+                <h3>"Is it really free?"</h3>
+                <p>Yes. No trial. No subscription. No catch.</p>
+            </div>
+            <div class="faq-item">
+                <h3>"Will Netflix work?"</h3>
+                <p>Yes. It works in the browser.</p>
+            </div>
+            <div class="faq-item">
+                <h3>"Who makes this?"</h3>
+                <p>Cody Boring. Yes, really. I didn't invent any of this—I just picked the pieces and put them together. Like a chef who didn't grow the vegetables.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Line -->
+    <section class="section">
+        <h2>The bottom line.</h2>
+        <p>Your computer is fine. It's fast enough. It's new enough.</p>
+        <p>The software is the problem.</p>
+        <p>BoringOS is different software. Same computer. Same keyboard. Same mouse. Same files. No ads. No tracking. No forced updates. No Microsoft.</p>
+        <p>Turn it on. Do your stuff. Turn it off.</p>
+        <p>That's it.</p>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section" id="download">
+        <h2>Ready?</h2>
+        <p>15 minutes. One USB drive. Free forever.</p>
+        <a href="#" class="cta-btn">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            Download BoringOS
+        </a>
+    </section>
+
+    <footer>
+        <p>BoringOS: Mockingbird. Free and open source.</p>
+        <p>Built with <a href="https://universal-blue.org">Universal Blue</a> and <a href="https://blue-build.org">BlueBuild</a>, based on <a href="https://fedoraproject.org">Fedora</a>.</p>
+        <p>Curated by Cody Boring in Tennessee.</p>
+    </footer>
+
+</body>
+</html>
