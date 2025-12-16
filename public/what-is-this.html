@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>What is BoringOS?</title>
     <meta name="description" content="Same computer. Better software. BoringOS replaces Windows with something that just works. No ads. No accounts. Free forever.">
+    <link rel="canonical" href="https://boringos-site.vercel.app/what-is-this">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <meta property="og:title" content="What is BoringOS?">
     <meta property="og:description" content="Same computer. Better software. BoringOS replaces Windows with something that just works. No ads. No accounts. Free forever.">
@@ -16,357 +17,43 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --black: #0a0a0a;
-            --white: #fafafa;
-            --gray-100: #f5f5f5;
-            --gray-200: #e5e5e5;
-            --gray-400: #a3a3a3;
-            --gray-600: #525252;
-            --tennessee-orange: #FF6B00;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--white);
-            color: var(--black);
-            line-height: 1.7;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            padding: 1.25rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(250, 250, 250, 0.95);
-            backdrop-filter: blur(20px);
-            z-index: 100;
-            border-bottom: 1px solid var(--gray-200);
-        }
-
-        .nav-logo {
-            font-size: 1.25rem;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            text-decoration: none;
-            color: var(--black);
-        }
-
-        .nav-logo span {
-            color: var(--tennessee-orange);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--gray-600);
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .nav-links a:hover {
-            color: var(--black);
-        }
-
-        .nav-cta {
-            background: var(--black);
-            color: var(--white) !important;
-            padding: 0.6rem 1.25rem;
-            border-radius: 6px;
-        }
-
-        .hero {
-            padding: 10rem 2rem 5rem;
-            text-align: center;
-            background: linear-gradient(180deg, var(--white) 0%, var(--gray-100) 100%);
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 3.5rem);
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero h1 span {
-            color: var(--tennessee-orange);
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            color: var(--gray-600);
-            max-width: 550px;
-            margin: 0 auto;
-        }
-
-        .section {
-            padding: 5rem 2rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .section-alt {
-            background: var(--gray-100);
-            max-width: 100%;
-        }
-
-        .section-alt .section-inner {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .section h2 {
-            font-size: 1.75rem;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            margin-bottom: 1rem;
-        }
-
-        .section p {
-            font-size: 1.1rem;
-            color: var(--gray-600);
-            margin-bottom: 1.5rem;
-        }
-
-        .section p:last-child {
-            margin-bottom: 0;
-        }
-
-        .screenshot {
-            width: 100%;
-            border-radius: 12px;
-            border: 1px solid var(--gray-200);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
-            background: var(--gray-100);
-            aspect-ratio: 16/10;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--gray-400);
-            font-size: 0.9rem;
-            margin-top: 2rem;
-        }
-
-        /* Comparison Grid */
-        .compare-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .compare-card {
-            padding: 1.5rem;
-            border-radius: 12px;
-            border: 1px solid var(--gray-200);
-        }
-
-        .compare-card.bad {
-            background: #fef2f2;
-            border-color: #fecaca;
-        }
-
-        .compare-card.good {
-            background: #f0fdf4;
-            border-color: #bbf7d0;
-        }
-
-        .compare-card h3 {
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 1rem;
-        }
-
-        .compare-card.bad h3 {
-            color: #dc2626;
-        }
-
-        .compare-card.good h3 {
-            color: #16a34a;
-        }
-
-        .compare-card ul {
-            list-style: none;
-        }
-
-        .compare-card li {
-            padding: 0.5rem 0;
-            font-size: 0.95rem;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .compare-card li:last-child {
-            border-bottom: none;
-        }
-
-        /* Steps */
-        .steps {
-            margin-top: 2rem;
-        }
-
-        .step {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .step-num {
-            width: 36px;
-            height: 36px;
-            background: var(--black);
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-            flex-shrink: 0;
-        }
-
-        .step-text h4 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-        }
-
-        .step-text p {
-            font-size: 0.95rem;
-            color: var(--gray-600);
-            margin-bottom: 0;
-        }
-
-        /* FAQ */
-        .faq-item {
-            padding: 1.5rem 0;
-            border-bottom: 1px solid var(--gray-200);
-        }
-
-        .faq-item:last-child {
-            border-bottom: none;
-        }
-
-        .faq-item h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .faq-item p {
-            margin-bottom: 0;
-        }
-
-        /* CTA */
-        .cta-section {
-            padding: 6rem 2rem;
-            background: var(--black);
-            color: var(--white);
-            text-align: center;
-        }
-
-        .cta-section h2 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .cta-section p {
-            color: rgba(255,255,255,0.7);
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-        }
-
-        .cta-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--white);
-            color: var(--black);
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: transform 0.2s;
-        }
-
-        .cta-btn:hover {
-            transform: translateY(-2px);
-        }
-
-        footer {
-            padding: 3rem 2rem;
-            background: var(--black);
-            border-top: 1px solid rgba(255,255,255,0.1);
-            text-align: center;
-        }
-
-        footer p {
-            font-size: 0.85rem;
-            color: rgba(255,255,255,0.5);
-            margin-bottom: 0.5rem;
-        }
-
-        footer a {
-            color: rgba(255,255,255,0.5);
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            .hero {
-                padding: 8rem 1.5rem 4rem;
-            }
-            .section {
-                padding: 3rem 1.5rem;
-            }
-            .compare-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
 <body>
+    <a href="#main" class="skip-link">Skip to content</a>
 
     <nav>
         <a href="/" class="nav-logo">BoringOS<span>.</span></a>
+        <button class="nav-toggle" aria-label="Toggle menu" onclick="this.classList.toggle('active'); document.querySelector('.nav-links').classList.toggle('active');">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
         <div class="nav-links">
             <a href="/what-is-this">What is this?</a>
+            <a href="/how-it-works">How it works</a>
             <a href="/mockingbird">Mockingbird</a>
             <a href="#download" class="nav-cta">Download</a>
         </div>
     </nav>
 
-    <section class="hero">
+    <!-- Hero -->
+    <section class="hero hero-sub-page" id="main">
         <h1>Same computer<span>.</span><br>Better software<span>.</span></h1>
-        <p>That's it. That's the whole idea.</p>
+        <p class="hero-sub">That's it. That's the whole idea.</p>
     </section>
 
     <!-- What You See -->
-    <section class="section">
+    <section class="section section-wide">
         <h2>This is what you see when you turn it on.</h2>
         <p>A desktop. A dock. Your apps. Nothing else.</p>
         <p>No tiles. No ads. No "Sign in to continue."</p>
-        <div class="screenshot">[Screenshot: Clean BoringOS desktop]</div>
+        <div class="screenshot">
+            <div class="screenshot-placeholder">
+                <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                <span>Desktop screenshot coming soon</span>
+            </div>
+        </div>
     </section>
 
     <!-- What You Click -->
@@ -374,16 +61,26 @@
         <div class="section-inner">
             <h2>This is what you click to browse the internet.</h2>
             <p>Same as always. Google works. YouTube works. Amazon works. Your bank works.</p>
-            <div class="screenshot">[Screenshot: Firefox showing a website]</div>
+            <div class="screenshot">
+                <div class="screenshot-placeholder">
+                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                    <span>Browser screenshot coming soon</span>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Your Files -->
-    <section class="section">
+    <section class="section section-wide">
         <h2>These are your files.</h2>
         <p>Documents here. Pictures here. Downloads here.</p>
         <p>Copy them over. They work the same.</p>
-        <div class="screenshot">[Screenshot: Files app]</div>
+        <div class="screenshot">
+            <div class="screenshot-placeholder">
+                <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                <span>Files app screenshot coming soon</span>
+            </div>
+        </div>
     </section>
 
     <!-- Your Documents -->
@@ -392,12 +89,17 @@
             <h2>This is a Word document.</h2>
             <p>Click it. It opens. Edit it. Save it. Send it to your boss.</p>
             <p>They'll never know.</p>
-            <div class="screenshot">[Screenshot: LibreOffice Writer with .docx]</div>
+            <div class="screenshot">
+                <div class="screenshot-placeholder">
+                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                    <span>Document screenshot coming soon</span>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- What's Different -->
-    <section class="section">
+    <section class="section section-wide">
         <h2>What's different?</h2>
         <p>Not the way you use it. What's gone.</p>
         <div class="compare-grid">
@@ -437,7 +139,7 @@
     </section>
 
     <!-- Is This Hard -->
-    <section class="section">
+    <section class="section section-wide">
         <h2>"Is this hard?"</h2>
         <p>Five questions. 15 minutes.</p>
         <div class="steps">
@@ -452,7 +154,7 @@
                 <div class="step-num">2</div>
                 <div class="step-text">
                     <h4>Copy it to a USB drive</h4>
-                    <p>Use Balena Etcher. Three clicks.</p>
+                    <p>Use a free tool. Three clicks.</p>
                 </div>
             </div>
             <div class="step">
@@ -477,12 +179,13 @@
                 </div>
             </div>
         </div>
+        <a href="/how-it-works" class="cta-btn" style="margin-top: 2rem;">See the full guide</a>
     </section>
 
     <!-- FAQ -->
     <section class="section section-alt">
         <div class="section-inner">
-            <h2>Still not sure?</h2>
+            <h2 style="text-align: center; margin-bottom: 2rem;">Still not sure?</h2>
             <div class="faq-item">
                 <h3>"What about my printer?"</h3>
                 <p>Plug it in. It probably just works.</p>
@@ -503,7 +206,7 @@
     </section>
 
     <!-- Bottom Line -->
-    <section class="section">
+    <section class="section section-wide">
         <h2>The bottom line.</h2>
         <p>Your computer is fine. It's fast enough. It's new enough.</p>
         <p>The software is the problem.</p>
@@ -516,16 +219,16 @@
     <section class="cta-section" id="download">
         <h2>Ready?</h2>
         <p>15 minutes. One USB drive. Free forever.</p>
-        <a href="#" class="cta-btn">
+        <a href="https://github.com/getboring/boringos/releases" class="cta-btn">
             <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
             Download BoringOS
         </a>
     </section>
 
+    <!-- Footer -->
     <footer>
         <p>BoringOS: Mockingbird. Free forever.</p>
-        <p>Built with <a href="https://universal-blue.org">Universal Blue</a> and <a href="https://blue-build.org">BlueBuild</a>, based on <a href="https://fedoraproject.org">Fedora</a>.</p>
+        <p>Built with <a href="https://universal-blue.org" target="_blank" rel="noopener">Universal Blue</a> and <a href="https://blue-build.org" target="_blank" rel="noopener">BlueBuild</a>, based on <a href="https://fedoraproject.org" target="_blank" rel="noopener">Fedora</a>.</p>
     </footer>
-
 </body>
 </html>

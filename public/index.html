@@ -3,540 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BoringOS. Your computer, minus the nonsense.</title>
+    <title>BoringOS — Your computer, minus the nonsense.</title>
     <meta name="description" content="Same computer. Same files. Same apps. No ads. No tracking. No forced updates. No Microsoft. BoringOS is free.">
+    <link rel="canonical" href="https://boringos-site.vercel.app/">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <meta property="og:title" content="BoringOS. Your computer, minus the nonsense.">
+    <meta property="og:title" content="BoringOS — Your computer, minus the nonsense.">
     <meta property="og:description" content="Same computer. Same files. Same apps. No ads. No tracking. No forced updates. No Microsoft.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://boringos-site.vercel.app/">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="BoringOS. Your computer, minus the nonsense.">
+    <meta name="twitter:title" content="BoringOS — Your computer, minus the nonsense.">
     <meta name="twitter:description" content="Same computer. Same files. Same apps. No ads. No tracking. No forced updates. No Microsoft.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/styles.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --black: #0a0a0a;
-            --white: #fafafa;
-            --gray-100: #f5f5f5;
-            --gray-200: #e5e5e5;
-            --gray-400: #a3a3a3;
-            --gray-600: #525252;
-            --tennessee-orange: #FF6B00;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--white);
-            color: var(--black);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            padding: 1.25rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(250, 250, 250, 0.95);
-            backdrop-filter: blur(20px);
-            z-index: 100;
-            border-bottom: 1px solid var(--gray-200);
-        }
-
-        .nav-logo {
-            font-size: 1.25rem;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            text-decoration: none;
-            color: var(--black);
-        }
-
-        .nav-logo span {
-            color: var(--tennessee-orange);
-        }
-
-        .nav-cta {
-            background: var(--black);
-            color: var(--white);
-            padding: 0.6rem 1.25rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: background 0.2s;
-        }
-
-        .nav-cta:hover {
-            background: #333;
-        }
-
-        /* Hero */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 8rem 2rem 4rem;
-            background: linear-gradient(180deg, var(--white) 0%, var(--gray-100) 100%);
-        }
-
-        .hero-label {
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--gray-600);
-            margin-bottom: 1.5rem;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero h1 span {
-            color: var(--tennessee-orange);
-        }
-
-        .hero-sub {
-            font-size: 1.25rem;
-            color: var(--gray-600);
-            max-width: 500px;
-            margin-bottom: 2.5rem;
-        }
-
-        .hero-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--black);
-            color: var(--white);
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: transform 0.2s, background 0.2s;
-        }
-
-        .hero-cta:hover {
-            background: #333;
-            transform: translateY(-2px);
-        }
-
-        .hero-cta svg {
-            width: 20px;
-            height: 20px;
-        }
-
-        /* Screenshot Section Base */
-        .show-section {
-            padding: 6rem 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .show-section h2 {
-            font-size: clamp(1.5rem, 4vw, 2rem);
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            margin-bottom: 1rem;
-            color: var(--black);
-        }
-
-        .show-section p {
-            font-size: 1.1rem;
-            color: var(--gray-600);
-            margin-bottom: 2rem;
-            max-width: 600px;
-        }
-
-        .screenshot {
-            width: 100%;
-            border-radius: 12px;
-            border: 1px solid var(--gray-200);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-            background: var(--gray-100);
-            aspect-ratio: 16/10;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--gray-400);
-            font-size: 0.9rem;
-        }
-
-        /* Alternating backgrounds */
-        .show-section:nth-child(even) {
-            background: var(--gray-100);
-            max-width: 100%;
-            padding-left: calc((100% - 1000px) / 2 + 2rem);
-            padding-right: calc((100% - 1000px) / 2 + 2rem);
-        }
-
-        .show-section:nth-child(even) .show-inner {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        /* The "Never See" Section */
-        .never-section {
-            padding: 6rem 2rem;
-            background: var(--black);
-            color: var(--white);
-        }
-
-        .never-inner {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .never-section h2 {
-            font-size: clamp(1.5rem, 4vw, 2rem);
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            margin-bottom: 3rem;
-            text-align: center;
-        }
-
-        .never-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .never-item {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 1.5rem;
-            position: relative;
-        }
-
-        .never-item::before {
-            content: '';
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            width: 24px;
-            height: 24px;
-            background: var(--tennessee-orange);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .never-item::after {
-            content: '✕';
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            width: 24px;
-            height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-            font-weight: bold;
-            color: var(--white);
-        }
-
-        .never-item h3 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            padding-right: 2rem;
-            text-decoration: line-through;
-            text-decoration-color: var(--tennessee-orange);
-            opacity: 0.7;
-        }
-
-        .never-item p {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        /* What's Included Grid */
-        .included-section {
-            padding: 6rem 2rem;
-            background: var(--gray-100);
-        }
-
-        .included-inner {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .included-section h2 {
-            font-size: clamp(1.5rem, 4vw, 2rem);
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        .included-section > .included-inner > p {
-            text-align: center;
-            color: var(--gray-600);
-            margin-bottom: 3rem;
-            font-size: 1.1rem;
-        }
-
-        .included-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-        }
-
-        .included-item {
-            background: var(--white);
-            border-radius: 10px;
-            padding: 1.25rem;
-            border: 1px solid var(--gray-200);
-        }
-
-        .included-item h4 {
-            font-size: 0.95rem;
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-        }
-
-        .included-item p {
-            font-size: 0.85rem;
-            color: var(--gray-600);
-        }
-
-        /* How To Get It */
-        .how-section {
-            padding: 6rem 2rem;
-            background: var(--white);
-        }
-
-        .how-inner {
-            max-width: 700px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .how-section h2 {
-            font-size: clamp(1.5rem, 4vw, 2rem);
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            margin-bottom: 0.5rem;
-        }
-
-        .how-section .how-sub {
-            color: var(--gray-600);
-            font-size: 1.1rem;
-            margin-bottom: 3rem;
-        }
-
-        .steps {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            text-align: left;
-            margin-bottom: 3rem;
-        }
-
-        .step {
-            display: flex;
-            gap: 1rem;
-            align-items: flex-start;
-        }
-
-        .step-num {
-            width: 32px;
-            height: 32px;
-            background: var(--black);
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-            font-size: 0.9rem;
-            flex-shrink: 0;
-        }
-
-        .step-text h4 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-        }
-
-        .step-text p {
-            font-size: 0.95rem;
-            color: var(--gray-600);
-        }
-
-        .how-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--tennessee-orange);
-            color: var(--white);
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: transform 0.2s, filter 0.2s;
-        }
-
-        .how-cta:hover {
-            filter: brightness(1.1);
-            transform: translateY(-2px);
-        }
-
-        /* FAQ */
-        .faq-section {
-            padding: 6rem 2rem;
-            background: var(--gray-100);
-        }
-
-        .faq-inner {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .faq-section h2 {
-            font-size: clamp(1.5rem, 4vw, 2rem);
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            margin-bottom: 2.5rem;
-            text-align: center;
-        }
-
-        .faq-item {
-            border-bottom: 1px solid var(--gray-200);
-            padding: 1.5rem 0;
-        }
-
-        .faq-item:last-child {
-            border-bottom: none;
-        }
-
-        .faq-item h4 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .faq-item p {
-            font-size: 0.95rem;
-            color: var(--gray-600);
-        }
-
-        /* Final CTA */
-        .final-section {
-            padding: 8rem 2rem;
-            background: var(--black);
-            color: var(--white);
-            text-align: center;
-        }
-
-        .final-section h2 {
-            font-size: clamp(1.75rem, 5vw, 2.5rem);
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            margin-bottom: 1rem;
-        }
-
-        .final-section p {
-            font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 2.5rem;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .final-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--white);
-            color: var(--black);
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: transform 0.2s;
-        }
-
-        .final-cta:hover {
-            transform: translateY(-2px);
-        }
-
-        /* Footer */
-        footer {
-            padding: 3rem 2rem;
-            background: var(--black);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center;
-        }
-
-        footer p {
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.5);
-            margin-bottom: 0.5rem;
-        }
-
-        footer a {
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        footer a:hover {
-            color: var(--white);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            nav {
-                padding: 1rem 1.5rem;
-            }
-            
-            .show-section:nth-child(even) {
-                padding-left: 2rem;
-                padding-right: 2rem;
-            }
-
-            .never-grid {
-                grid-template-columns: 1fr;
-            }
+        /* Font display swap for performance */
+        @font-face {
+            font-family: 'Inter';
+            font-display: swap;
         }
     </style>
 </head>
 <body>
+    <a href="#main" class="skip-link">Skip to content</a>
 
     <nav>
         <a href="/" class="nav-logo">BoringOS<span>.</span></a>
-        <a href="#download" class="nav-cta">Download Free</a>
+        <button class="nav-toggle" aria-label="Toggle menu" onclick="this.classList.toggle('active'); document.querySelector('.nav-links').classList.toggle('active');">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-links">
+            <a href="/what-is-this">What is this?</a>
+            <a href="/how-it-works">How it works</a>
+            <a href="/mockingbird">Mockingbird</a>
+            <a href="#download" class="nav-cta">Download</a>
+        </div>
     </nav>
 
     <!-- Hero -->
-    <section class="hero">
+    <section class="hero" id="main">
         <p class="hero-label">Mockingbird Release</p>
         <h1>Your computer<span>.</span><br>Minus the nonsense<span>.</span></h1>
         <p class="hero-sub">Same computer. Same files. Same apps. No ads. No tracking. No forced updates. No Microsoft.</p>
@@ -546,99 +55,15 @@
         </a>
     </section>
 
-    <!-- This is what you see -->
-    <section class="show-section">
+    <!-- What you see -->
+    <section class="section section-wide">
         <h2>This is what you see when you turn it on.</h2>
         <p>A desktop. A dock. Your apps. Nothing else.</p>
-        <div class="screenshot">[Screenshot: Clean GNOME desktop with dock]</div>
-    </section>
-
-    <!-- Browse -->
-    <section class="show-section">
-        <div class="show-inner">
-            <h2>This is how you browse the internet.</h2>
-            <p>Click the browser. Type a website. That's it.</p>
-            <div class="screenshot">[Screenshot: Firefox open to a webpage]</div>
-        </div>
-    </section>
-
-    <!-- Email -->
-    <section class="show-section">
-        <h2>This is how you check email.</h2>
-        <p>Works with Gmail. Works with Yahoo. Works with Outlook. Works with anything.</p>
-        <div class="screenshot">[Screenshot: Thunderbird inbox]</div>
-    </section>
-
-    <!-- Documents -->
-    <section class="show-section">
-        <div class="show-inner">
-            <h2>This is how you write a document.</h2>
-            <p>Opens Word files. Saves Word files. Your boss won't know the difference.</p>
-            <div class="screenshot">[Screenshot: LibreOffice Writer with document]</div>
-        </div>
-    </section>
-
-    <!-- Spreadsheets -->
-    <section class="show-section">
-        <h2>This is how you make a spreadsheet.</h2>
-        <p>Opens Excel files. Saves Excel files. Your accountant won't know the difference.</p>
-        <div class="screenshot">[Screenshot: LibreOffice Calc with data]</div>
-    </section>
-
-    <!-- Photos -->
-    <section class="show-section">
-        <div class="show-inner">
-            <h2>This is how you view photos.</h2>
-            <p>Click a photo. It opens. Zoom. Scroll. Done.</p>
-            <div class="screenshot">[Screenshot: Photo viewer showing image]</div>
-        </div>
-    </section>
-
-    <!-- Video -->
-    <section class="show-section">
-        <h2>This is how you watch a video.</h2>
-        <p>Click a video. It plays.</p>
-        <div class="screenshot">[Screenshot: Video player with movie]</div>
-    </section>
-
-    <!-- Music -->
-    <section class="show-section">
-        <div class="show-inner">
-            <h2>This is how you listen to music.</h2>
-            <p>Your MP3s. Your albums. Your playlists. No subscription required.</p>
-            <div class="screenshot">[Screenshot: Rhythmbox with music]</div>
-        </div>
-    </section>
-
-    <!-- Files -->
-    <section class="show-section">
-        <h2>This is how you find your files.</h2>
-        <p>Documents here. Pictures here. Downloads here. Exactly where you'd expect.</p>
-        <div class="screenshot">[Screenshot: Files app showing folders]</div>
-    </section>
-
-    <!-- Apps -->
-    <section class="show-section">
-        <div class="show-inner">
-            <h2>This is how you install an app.</h2>
-            <p>Search. Click Install. Done. Thousands available.</p>
-            <div class="screenshot">[Screenshot: GNOME Software app store]</div>
-        </div>
-    </section>
-
-    <!-- Games -->
-    <section class="show-section">
-        <h2>This is how you play a game.</h2>
-        <p>Chess. Solitaire. Sudoku. Already installed. No ads. No accounts.</p>
-        <div class="screenshot">[Screenshot: Chess game in progress]</div>
-    </section>
-
-    <!-- Kids -->
-    <section class="show-section">
-        <div class="show-inner">
-            <h2>This is how your kid learns.</h2>
-            <p>100+ educational activities. Math. Reading. Puzzles. No ads. No in-app purchases.</p>
-            <div class="screenshot">[Screenshot: GCompris educational game]</div>
+        <div class="screenshot">
+            <div class="screenshot-placeholder">
+                <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                <span>Desktop screenshot coming soon</span>
+            </div>
         </div>
     </section>
 
@@ -733,59 +158,44 @@
         </div>
     </section>
 
-    <!-- How To -->
-    <section class="how-section" id="download">
-        <div class="how-inner">
-            <h2>15 minutes. One USB drive.</h2>
-            <p class="how-sub">If you can install a printer, you can do this.</p>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-num">1</div>
-                    <div class="step-text">
-                        <h4>Download the file</h4>
-                        <p>Click the button below. It's free.</p>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-num">2</div>
-                    <div class="step-text">
-                        <h4>Copy it to a USB drive</h4>
-                        <p>Use Balena Etcher (also free). Three clicks.</p>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-num">3</div>
-                    <div class="step-text">
-                        <h4>Restart with USB plugged in</h4>
-                        <p>Your computer boots from the USB.</p>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-num">4</div>
-                    <div class="step-text">
-                        <h4>Answer 5 questions</h4>
-                        <p>Language. Time zone. Your name. A password. Which drive.</p>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-num">5</div>
-                    <div class="step-text">
-                        <h4>Done</h4>
-                        <p>Your computer now runs BoringOS.</p>
-                    </div>
+    <!-- How To (Brief) -->
+    <section class="section section-wide section-center" id="download">
+        <h2>15 minutes. One USB drive.</h2>
+        <p>If you can install a printer, you can do this.</p>
+        <div class="steps" style="max-width: 500px; margin: 2rem auto;">
+            <div class="step">
+                <div class="step-num">1</div>
+                <div class="step-text">
+                    <h4>Download the file</h4>
+                    <p>Click the button below. It's free.</p>
                 </div>
             </div>
-            <a href="#" class="how-cta">
-                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-                Download Mockingbird
-            </a>
+            <div class="step">
+                <div class="step-num">2</div>
+                <div class="step-text">
+                    <h4>Copy to USB</h4>
+                    <p>Use a free tool. Three clicks.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <div class="step-text">
+                    <h4>Restart and install</h4>
+                    <p>Answer 5 questions. Done.</p>
+                </div>
+            </div>
         </div>
+        <a href="/how-it-works" class="cta-btn" style="margin-right: 1rem; margin-bottom: 1rem;">See full guide</a>
+        <a href="https://github.com/getboring/boringos/releases" class="cta-btn cta-btn-orange">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            Download Mockingbird
+        </a>
     </section>
 
     <!-- FAQ -->
-    <section class="faq-section">
-        <div class="faq-inner">
-            <h2>Still not sure?</h2>
+    <section class="section section-alt">
+        <div class="section-inner">
+            <h2 style="text-align: center; margin-bottom: 2rem;">Still not sure?</h2>
             <div class="faq-item">
                 <h4>"What about my files?"</h4>
                 <p>Copy them over. They work exactly the same.</p>
@@ -814,10 +224,10 @@
     </section>
 
     <!-- Final CTA -->
-    <section class="final-section">
+    <section class="cta-section">
         <h2>Your computer is fine.</h2>
         <p>The software on it is the problem.</p>
-        <a href="#download" class="final-cta">
+        <a href="#download" class="cta-btn">
             <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
             Download Free
         </a>
@@ -826,8 +236,7 @@
     <!-- Footer -->
     <footer>
         <p>BoringOS: Mockingbird. Free forever.</p>
-        <p>Built with <a href="https://universal-blue.org" target="_blank">Universal Blue</a> and <a href="https://blue-build.org" target="_blank">BlueBuild</a>, based on <a href="https://fedoraproject.org" target="_blank">Fedora</a>.</p>
+        <p>Built with <a href="https://universal-blue.org" target="_blank" rel="noopener">Universal Blue</a> and <a href="https://blue-build.org" target="_blank" rel="noopener">BlueBuild</a>, based on <a href="https://fedoraproject.org" target="_blank" rel="noopener">Fedora</a>.</p>
     </footer>
-
 </body>
 </html>
