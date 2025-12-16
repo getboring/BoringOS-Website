@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BoringOS — The OS that disappears.</title>
+    <meta name="description" content="A Linux distribution for professionals who have better things to do. Atomic updates. Rollback in seconds. Set it, forget it, work.">
+    <link rel="canonical" href="https://boringos-site.vercel.app/">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta property="og:title" content="BoringOS — The OS that disappears.">
+    <meta property="og:description" content="A Linux distribution for professionals who have better things to do. Atomic updates. Rollback in seconds. Set it, forget it, work.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://boringos-site.vercel.app/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BoringOS — The OS that disappears.">
+    <meta name="twitter:description" content="A Linux distribution for professionals who have better things to do.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to content</a>
+
+    <nav>
+        <a href="/" class="nav-logo">BoringOS<span>.</span></a>
+        <button class="nav-toggle" aria-label="Toggle menu" onclick="this.classList.toggle('active'); document.querySelector('.nav-links').classList.toggle('active');">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-links">
+            <a href="/why-boring">Why boring?</a>
+            <a href="/how-it-works">Install</a>
+            <a href="/mockingbird">What's included</a>
+            <a href="#download" class="nav-cta">Download</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="main">
+        <h1>The OS that disappears<span>.</span></h1>
+        <p class="hero-sub">You have actual work to do. Your operating system should get out of the way and let you do it.</p>
+        <a href="#download" class="hero-cta">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            Download
+        </a>
+        <p style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--gray-400);">Fedora Atomic base. Free forever.</p>
+    </section>
+
+    <!-- The Problem -->
+    <section class="section section-wide">
+        <h2>You've been burned before.</h2>
+        <p>The update that broke your environment the morning of a deadline.</p>
+        <p>The afternoon lost to dependency hell instead of shipping.</p>
+        <p>The "quick fix" that became a weekend.</p>
+        <p style="margin-top: 2rem; color: var(--black);">Your tools should work. Then disappear. That's it.</p>
+    </section>
+
+    <!-- What Boring Means -->
+    <section class="never-section">
+        <div class="never-inner">
+            <h2>Boring is the point.</h2>
+            <div class="never-grid">
+                <div class="never-item">
+                    <h3>No surprises</h3>
+                    <p>Atomic updates. The system either updates completely or doesn't change at all. No partial states. No corruption.</p>
+                </div>
+                <div class="never-item">
+                    <h3>Instant rollback</h3>
+                    <p>Something wrong? Boot into the previous version. 30 seconds. Done. Back to work.</p>
+                </div>
+                <div class="never-item">
+                    <h3>Immutable base</h3>
+                    <p>The system partition is read-only. Apps can't break the OS. You can't accidentally break the OS.</p>
+                </div>
+                <div class="never-item">
+                    <h3>Update when you want</h3>
+                    <p>No forced restarts. No interruptions. You decide when.</p>
+                </div>
+                <div class="never-item">
+                    <h3>Nothing exotic</h3>
+                    <p>Standard tools. Standard workflows. Flatpak apps. If you've used Linux, you know this.</p>
+                </div>
+                <div class="never-item">
+                    <h3>No maintenance</h3>
+                    <p>No package conflicts. No broken upgrades. No weekend projects to "fix" your system.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who This Is For -->
+    <section class="section section-wide">
+        <h2>Who this is for.</h2>
+        <p>BoringOS is for people who use their computer to do work, not as a hobby.</p>
+        <div style="margin-top: 2rem; display: grid; gap: 1rem;">
+            <p><strong>Developers</strong> who want their environment to stay out of the way.</p>
+            <p><strong>Freelancers</strong> whose downtime costs them money.</p>
+            <p><strong>Small teams</strong> without a dedicated IT person to babysit machines.</p>
+            <p><strong>Anyone</strong> who's lost an afternoon to an update that broke something.</p>
+        </div>
+        <p style="margin-top: 2rem; color: var(--gray-600);">If you want to tinker, there are better distros for that. If you want to work, keep reading.</p>
+    </section>
+
+    <!-- What's On It -->
+    <section class="section section-alt">
+        <div class="section-inner">
+            <h2>What's on it.</h2>
+            <p>A sensible default setup. Change what you want. Or don't.</p>
+            <div class="included-grid" style="margin-top: 2rem;">
+                <div class="included-item">
+                    <h4>Firefox</h4>
+                    <p>Browser</p>
+                </div>
+                <div class="included-item">
+                    <h4>Thunderbird</h4>
+                    <p>Email</p>
+                </div>
+                <div class="included-item">
+                    <h4>LibreOffice</h4>
+                    <p>Documents</p>
+                </div>
+                <div class="included-item">
+                    <h4>GNOME</h4>
+                    <p>Desktop</p>
+                </div>
+                <div class="included-item">
+                    <h4>Flatpak</h4>
+                    <p>Apps</p>
+                </div>
+                <div class="included-item">
+                    <h4>Everything else</h4>
+                    <p>In the app store</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Install -->
+    <section class="section section-wide section-center" id="download">
+        <h2>Install.</h2>
+        <p>Standard process. USB drive. 15-20 minutes.</p>
+        <div class="steps" style="max-width: 500px; margin: 2rem auto; text-align: left;">
+            <div class="step">
+                <div class="step-num">1</div>
+                <div class="step-text">
+                    <h4>Download the ISO</h4>
+                    <p>~3GB. SHA256 checksum on the release page.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <div class="step-text">
+                    <h4>Write to USB</h4>
+                    <p>dd, Balena Etcher, Rufus. Whatever you use.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <div class="step-text">
+                    <h4>Boot and install</h4>
+                    <p>Standard Anaconda installer. You've seen it before.</p>
+                </div>
+            </div>
+        </div>
+        <a href="https://github.com/getboring/boringos/releases" class="cta-btn cta-btn-orange">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            Download ISO
+        </a>
+        <p style="margin-top: 1rem;"><a href="/how-it-works" style="color: var(--gray-400); font-size: 0.9rem;">Detailed install guide →</a></p>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section-alt">
+        <div class="section-inner">
+            <h2>Questions.</h2>
+            <div class="faq-item">
+                <h4>Why not just use Fedora?</h4>
+                <p>You can. BoringOS is Fedora Atomic with opinionated defaults and a curated app selection. If you want to configure everything yourself, use Fedora. If you want something that works out of the box, use this.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Can I install my own packages?</h4>
+                <p>Apps via Flatpak. CLI tools via brew or toolbox containers. The base system stays immutable. That's the point.</p>
+            </div>
+            <div class="faq-item">
+                <h4>What about hardware support?</h4>
+                <p>Same as Fedora. If it works on Fedora, it works here. Most hardware just works. Some doesn't. Check before you commit.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Is this for servers?</h4>
+                <p>No. This is a workstation OS. For servers, look at Fedora CoreOS or similar.</p>
+            </div>
+            <div class="faq-item">
+                <h4>What's the catch?</h4>
+                <p>No catch. It's free. It's open source. It's built on Universal Blue and BlueBuild, which are also free and open source.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="cta-section">
+        <h2>Stability is a feature.</h2>
+        <p>Set it. Forget it. Work.</p>
+        <a href="#download" class="cta-btn">Download</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>BoringOS: Mockingbird release.</p>
+        <p>Built on <a href="https://fedoraproject.org" target="_blank" rel="noopener">Fedora</a> with <a href="https://universal-blue.org" target="_blank" rel="noopener">Universal Blue</a> and <a href="https://blue-build.org" target="_blank" rel="noopener">BlueBuild</a>.</p>
+    </footer>
+</body>
+</html>

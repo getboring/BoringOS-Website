@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BoringOS — Stop fighting your operating system.</title>
+    <meta name="description" content="A Linux distribution for professionals who want their OS to disappear. Atomic updates. Instant rollback. Set it, forget it, work.">
+    <link rel="canonical" href="https://boringos-site.vercel.app/">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta property="og:title" content="BoringOS — Stop fighting your operating system.">
+    <meta property="og:description" content="A Linux distribution for professionals who want their OS to disappear. Atomic updates. Instant rollback.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://boringos-site.vercel.app/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BoringOS — Stop fighting your operating system.">
+    <meta name="twitter:description" content="A Linux distribution for professionals who want their OS to disappear.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to content</a>
+
+    <nav>
+        <a href="/" class="nav-logo">BoringOS<span>.</span></a>
+        <button class="nav-toggle" aria-label="Toggle menu" onclick="this.classList.toggle('active'); document.querySelector('.nav-links').classList.toggle('active');">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-links">
+            <a href="/why-boring">Why boring?</a>
+            <a href="/how-it-works">How it works</a>
+            <a href="#download" class="nav-cta">Download</a>
+        </div>
+    </nav>
+
+    <!--
+    =====================================================
+    STORYBRAND SECTION 1: CHARACTER + PROBLEM
+    Hero statement that identifies the customer and their problem
+    =====================================================
+    -->
+    <section class="hero" id="main">
+        <h1>Stop fighting your operating system<span>.</span></h1>
+        <p class="hero-sub">You have real work to do. Your OS should get out of the way and let you do it.</p>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-top: 2rem;">
+            <a href="#download" class="hero-cta">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                Download Free
+            </a>
+            <a href="#how-it-works" class="cta-btn" style="background: transparent; border: 1px solid var(--gray-200); color: var(--black);">See How It Works</a>
+        </div>
+    </section>
+
+    <!--
+    =====================================================
+    STORYBRAND SECTION 2: PROBLEM (External, Internal, Philosophical)
+    Name the villain. Agitate the pain.
+    =====================================================
+    -->
+    <section class="section section-wide">
+        <h2>You've been here before.</h2>
+
+        <!-- External Problem -->
+        <p>The update that broke your dev environment the morning of a deadline.</p>
+        <p>The dependency conflict that turned a 10-minute task into a 4-hour rabbit hole.</p>
+        <p>The "quick restart" that wasn't quick.</p>
+
+        <!-- Internal Problem -->
+        <p style="margin-top: 2rem; font-weight: 500; color: var(--black);">It's not just annoying. It's exhausting.</p>
+        <p>You're supposed to be building things, shipping work, making progress. Instead, you're babysitting your tools.</p>
+
+        <!-- Philosophical Problem -->
+        <p style="margin-top: 2rem; font-style: italic; color: var(--gray-600);">Your operating system should serve you. Not the other way around.</p>
+    </section>
+
+    <!--
+    =====================================================
+    STORYBRAND SECTION 3: GUIDE (Empathy + Authority)
+    Position BoringOS as the guide who understands and has the solution
+    =====================================================
+    -->
+    <section class="section section-alt">
+        <div class="section-inner">
+            <h2>We built BoringOS because we were tired of it too.</h2>
+
+            <!-- Empathy -->
+            <p>Tired of exciting new features that broke existing workflows. Tired of updates that demanded attention at the worst times. Tired of complexity disguised as capability.</p>
+
+            <!-- Authority -->
+            <p style="margin-top: 2rem;">So we built something different:</p>
+            <div class="included-grid" style="margin-top: 1.5rem;">
+                <div class="included-item">
+                    <h4>Fedora Atomic base</h4>
+                    <p>Enterprise-grade foundation</p>
+                </div>
+                <div class="included-item">
+                    <h4>Immutable system</h4>
+                    <p>Apps can't break the OS</p>
+                </div>
+                <div class="included-item">
+                    <h4>Atomic updates</h4>
+                    <p>All or nothing. No partial states.</p>
+                </div>
+                <div class="included-item">
+                    <h4>Instant rollback</h4>
+                    <p>One reboot to undo anything</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--
+    =====================================================
+    STORYBRAND SECTION 4: PLAN
+    Give them a simple 3-step plan
+    =====================================================
+    -->
+    <section class="section section-wide section-center" id="how-it-works">
+        <h2>Three steps. Fifteen minutes.</h2>
+        <p>No complexity. No surprises.</p>
+        <div class="steps" style="max-width: 500px; margin: 2rem auto; text-align: left;">
+            <div class="step">
+                <div class="step-num">1</div>
+                <div class="step-text">
+                    <h4>Download</h4>
+                    <p>Get the ISO file. About 3GB.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <div class="step-text">
+                    <h4>Create USB</h4>
+                    <p>Write the ISO to a USB drive using any standard tool.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <div class="step-text">
+                    <h4>Install</h4>
+                    <p>Boot from USB. Answer a few questions. Done.</p>
+                </div>
+            </div>
+        </div>
+        <a href="/how-it-works" style="color: var(--tennessee-orange); font-size: 0.9rem;">Read the detailed guide →</a>
+    </section>
+
+    <!--
+    =====================================================
+    STORYBRAND SECTION 5: FAILURE (Stakes)
+    What happens if they don't act?
+    =====================================================
+    -->
+    <section class="never-section">
+        <div class="never-inner">
+            <h2>Without a stable foundation, you'll keep losing time to:</h2>
+            <div class="never-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+                <div class="never-item">
+                    <h3>Broken updates</h3>
+                    <p>Another morning spent fixing what worked yesterday.</p>
+                </div>
+                <div class="never-item">
+                    <h3>Forced restarts</h3>
+                    <p>Interruptions you didn't ask for, at times you didn't choose.</p>
+                </div>
+                <div class="never-item">
+                    <h3>Dependency conflicts</h3>
+                    <p>Hours lost to problems that aren't your actual work.</p>
+                </div>
+                <div class="never-item">
+                    <h3>System maintenance</h3>
+                    <p>Weekends spent "fixing" instead of resting.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--
+    =====================================================
+    STORYBRAND SECTION 6: SUCCESS (Transformation)
+    Paint the picture of life after
+    =====================================================
+    -->
+    <section class="section section-wide">
+        <h2>Imagine this instead.</h2>
+        <p>You open your laptop. It works. You do your work. You close it.</p>
+        <p>Updates happen in the background. If something goes wrong, you roll back in one reboot.</p>
+        <p>You stop thinking about your operating system entirely.</p>
+        <p style="margin-top: 2rem; font-weight: 600; color: var(--black);">That's it. That's the product.</p>
+        <p style="color: var(--gray-600);">An OS that disappears so you can focus on what actually matters.</p>
+    </section>
+
+    <!--
+    =====================================================
+    STORYBRAND SECTION 7: CALL TO ACTION
+    Direct CTA + Transitional CTA
+    =====================================================
+    -->
+    <section class="cta-section" id="download">
+        <h2>Ready to stop fighting your tools?</h2>
+        <p>Free. Open source. Built on Fedora.</p>
+
+        <!-- Direct CTA -->
+        <a href="https://github.com/getboring/boringos/releases" class="cta-btn" style="margin-bottom: 1rem;">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            Download BoringOS
+        </a>
+
+        <!-- Transitional CTA -->
+        <p style="margin-top: 1.5rem;">
+            <a href="/how-it-works" style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">Not ready? Read the install guide first →</a>
+        </p>
+    </section>
+
+    <!-- FAQ - Handles remaining objections -->
+    <section class="section section-alt">
+        <div class="section-inner">
+            <h2>Common questions.</h2>
+            <div class="faq-item">
+                <h4>What's the difference from regular Fedora?</h4>
+                <p>BoringOS is Fedora Atomic with curated defaults. Same base, less configuration. If you want to build from scratch, use Fedora. If you want it to work out of the box, use this.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Can I install my own software?</h4>
+                <p>Yes. Apps install via Flatpak. Dev tools via toolbox containers. The base system stays stable while your workspace stays flexible.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Will my hardware work?</h4>
+                <p>If it works on Fedora, it works here. Most modern hardware is supported. Check compatibility before committing production machines.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Who's behind this?</h4>
+                <p>Built with <a href="https://universal-blue.org" style="color: var(--tennessee-orange);">Universal Blue</a> and <a href="https://blue-build.org" style="color: var(--tennessee-orange);">BlueBuild</a>. Open source. Community maintained.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>BoringOS: Stability is a feature.</p>
+        <p style="font-size: 0.8rem; margin-top: 0.5rem;">Built on <a href="https://fedoraproject.org" target="_blank" rel="noopener">Fedora</a>. Free forever.</p>
+    </footer>
+</body>
+</html>

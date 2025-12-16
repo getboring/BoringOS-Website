@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BoringOS — Your computer, minus the nonsense.</title>
+    <meta name="description" content="Same computer. Same files. Same apps. No ads. No tracking. No forced updates. No Microsoft. BoringOS is free.">
+    <link rel="canonical" href="https://boringos-site.vercel.app/">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta property="og:title" content="BoringOS — Your computer, minus the nonsense.">
+    <meta property="og:description" content="Same computer. Same files. Same apps. No ads. No tracking. No forced updates. No Microsoft.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://boringos-site.vercel.app/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BoringOS — Your computer, minus the nonsense.">
+    <meta name="twitter:description" content="Same computer. Same files. Same apps. No ads. No tracking. No forced updates. No Microsoft.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <style>
+        /* Font display swap for performance */
+        @font-face {
+            font-family: 'Inter';
+            font-display: swap;
+        }
+    </style>
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to content</a>
+
+    <nav>
+        <a href="/" class="nav-logo">BoringOS<span>.</span></a>
+        <button class="nav-toggle" aria-label="Toggle menu" onclick="this.classList.toggle('active'); document.querySelector('.nav-links').classList.toggle('active');">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-links">
+            <a href="/what-is-this">What is this?</a>
+            <a href="/how-it-works">How it works</a>
+            <a href="/mockingbird">What's included</a>
+            <a href="#download" class="nav-cta">Download</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="main">
+        <p class="hero-label">Mockingbird Release</p>
+        <h1>Your computer<span>.</span><br>Minus the nonsense<span>.</span></h1>
+        <p class="hero-sub">Same computer. Same files. Same apps. No ads. No tracking. No forced updates. No Microsoft.</p>
+        <a href="#download" class="hero-cta">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+            Get Started
+        </a>
+        <p style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--gray-400);">Built on Fedora. Trusted by millions.</p>
+    </section>
+
+    <!-- What you see -->
+    <section class="section section-wide">
+        <h2>This is what you see when you turn it on.</h2>
+        <p>A desktop. A dock. Your apps. Nothing else.</p>
+        <div class="screenshot">
+            <div class="screenshot-placeholder">
+                <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                <span>Desktop screenshot coming soon</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Never See Section -->
+    <section class="never-section">
+        <div class="never-inner">
+            <h2>This is what you'll never see.</h2>
+            <div class="never-grid">
+                <div class="never-item">
+                    <h3>"Your PC doesn't meet requirements"</h3>
+                    <p>Runs on computers Windows rejected.</p>
+                </div>
+                <div class="never-item">
+                    <h3>Ads in your Start menu</h3>
+                    <p>No ads. Anywhere. Ever.</p>
+                </div>
+                <div class="never-item">
+                    <h3>"Restart now to update"</h3>
+                    <p>Updates when you want. Not when it wants.</p>
+                </div>
+                <div class="never-item">
+                    <h3>"Sign in with Microsoft"</h3>
+                    <p>No account required. For anything.</p>
+                </div>
+                <div class="never-item">
+                    <h3>"Give Edge a chance"</h3>
+                    <p>No nagging. No upsells. No guilt trips.</p>
+                </div>
+                <div class="never-item">
+                    <h3>Virus warnings</h3>
+                    <p>Doesn't get viruses.</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="#download" class="cta-btn">Leave this behind</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- What's Included -->
+    <section class="included-section">
+        <div class="included-inner">
+            <h2>Everything you need. Already installed.</h2>
+            <p>No downloads on day one. No setup wizards. Open the lid and start.</p>
+            <div class="included-grid">
+                <div class="included-item">
+                    <h4>Firefox</h4>
+                    <p>Web browser</p>
+                </div>
+                <div class="included-item">
+                    <h4>Thunderbird</h4>
+                    <p>Email</p>
+                </div>
+                <div class="included-item">
+                    <h4>LibreOffice</h4>
+                    <p>Documents, spreadsheets, presentations</p>
+                </div>
+                <div class="included-item">
+                    <h4>Photos</h4>
+                    <p>View and organize</p>
+                </div>
+                <div class="included-item">
+                    <h4>Videos</h4>
+                    <p>Play anything</p>
+                </div>
+                <div class="included-item">
+                    <h4>Music</h4>
+                    <p>Your library</p>
+                </div>
+                <div class="included-item">
+                    <h4>PDF Reader</h4>
+                    <p>Documents</p>
+                </div>
+                <div class="included-item">
+                    <h4>Calculator</h4>
+                    <p>Math</p>
+                </div>
+                <div class="included-item">
+                    <h4>Calendar</h4>
+                    <p>Your schedule</p>
+                </div>
+                <div class="included-item">
+                    <h4>Games</h4>
+                    <p>Chess, Solitaire, Sudoku, more</p>
+                </div>
+                <div class="included-item">
+                    <h4>Kids Games</h4>
+                    <p>GCompris, Tux Paint, more</p>
+                </div>
+                <div class="included-item">
+                    <h4>App Store</h4>
+                    <p>Thousands more</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How To (Brief) -->
+    <section class="section section-wide section-center" id="download">
+        <h2>15 minutes. One USB drive.</h2>
+        <p>If you can install a printer, you can do this.</p>
+        <div class="steps" style="max-width: 500px; margin: 2rem auto;">
+            <div class="step">
+                <div class="step-num">1</div>
+                <div class="step-text">
+                    <h4>Download the file</h4>
+                    <p>Click the button below. It's free.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <div class="step-text">
+                    <h4>Copy to USB</h4>
+                    <p>Use a free tool. Three clicks.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <div class="step-text">
+                    <h4>Restart and install</h4>
+                    <p>Answer 5 questions. Done.</p>
+                </div>
+            </div>
+        </div>
+        <a href="/how-it-works" class="cta-btn" style="margin-right: 1rem; margin-bottom: 1rem;">See full guide</a>
+        <a href="https://github.com/getboring/boringos/releases" class="cta-btn cta-btn-orange">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            Download Mockingbird
+        </a>
+        <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--gray-400);">Click the .iso file (~3GB). It's the only file you need.</p>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section-alt">
+        <div class="section-inner">
+            <h2 style="text-align: center; margin-bottom: 2rem;">Still not sure?</h2>
+            <div class="faq-item">
+                <h4>"What about my files?"</h4>
+                <p>Copy them over. They work exactly the same.</p>
+            </div>
+            <div class="faq-item">
+                <h4>"Will my printer still work?"</h4>
+                <p>Plug it in. It probably just works.</p>
+            </div>
+            <div class="faq-item">
+                <h4>"What if I hate it?"</h4>
+                <p>You can reinstall Windows. But you probably won't want to.</p>
+            </div>
+            <div class="faq-item">
+                <h4>"Is it really free?"</h4>
+                <p>Yes. No trial. No subscription. No catch.</p>
+            </div>
+            <div class="faq-item">
+                <h4>"Will Netflix/Spotify work?"</h4>
+                <p>Yes. They work in the browser.</p>
+            </div>
+            <div class="faq-item">
+                <h4>"Can I play PC games?"</h4>
+                <p>Some. This isn't a gaming system, but casual games work fine.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="cta-section">
+        <h2>Your computer is fine.</h2>
+        <p>The software on it is the problem.</p>
+        <a href="#download" class="cta-btn">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+            Get Started
+        </a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>BoringOS: Mockingbird. Free forever.</p>
+        <p>Built with <a href="https://universal-blue.org" target="_blank" rel="noopener">Universal Blue</a> and <a href="https://blue-build.org" target="_blank" rel="noopener">BlueBuild</a>, based on <a href="https://fedoraproject.org" target="_blank" rel="noopener">Fedora</a>.</p>
+    </footer>
+</body>
+</html>
