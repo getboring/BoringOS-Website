@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://boringos-site.vercel.app/sitemap.xml
