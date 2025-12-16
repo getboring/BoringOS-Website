@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How It Works — BoringOS</title>
-    <meta name="description" content="Install BoringOS in 15 minutes. Download, copy to USB, restart. Five questions and you're done.">
+    <title>How to Install BoringOS — Step by Step Guide</title>
+    <meta name="description" content="Install BoringOS in about 15 minutes. We'll walk you through every step. Download, create a USB, restart, done.">
     <link rel="canonical" href="https://boringos-site.vercel.app/how-it-works">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <meta property="og:title" content="How It Works — BoringOS">
-    <meta property="og:description" content="Install BoringOS in 15 minutes. Download, copy to USB, restart. Five questions and you're done.">
+    <meta property="og:title" content="How to Install BoringOS">
+    <meta property="og:description" content="Install BoringOS in about 15 minutes. We'll walk you through every step.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://boringos-site.vercel.app/how-it-works">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="How It Works — BoringOS">
-    <meta name="twitter:description" content="Install BoringOS in 15 minutes. Download, copy to USB, restart. Five questions and you're done.">
+    <meta name="twitter:title" content="How to Install BoringOS">
+    <meta name="twitter:description" content="Install BoringOS in about 15 minutes. We'll walk you through every step.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -32,69 +32,81 @@
         <div class="nav-links">
             <a href="/what-is-this">What is this?</a>
             <a href="/how-it-works">How it works</a>
-            <a href="/mockingbird">What's included</a>
-            <a href="#download" class="nav-cta">Download</a>
+            <a href="#download" class="nav-cta">Get it free</a>
         </div>
     </nav>
 
     <!-- Hero -->
     <section class="hero hero-sub-page" id="main">
-        <p class="hero-label orange">Installation Guide</p>
-        <h1>15 minutes<span>.</span><br>One USB drive<span>.</span></h1>
-        <p class="hero-sub">If you can install a printer, you can do this.</p>
+        <h1>Let's do this together<span>.</span></h1>
+        <p class="hero-sub">About 15 minutes. We'll walk you through every step.</p>
     </section>
 
-    <!-- What You Need -->
+    <!-- Before You Start -->
     <section class="section section-wide">
-        <h2>What you need</h2>
-        <p>Three things. You probably have them already.</p>
+        <h2>Before you start.</h2>
+        <p>Take a breath. This is easier than it looks. Here's what you'll need:</p>
         <div class="included-grid" style="margin-top: 2rem;">
             <div class="included-item">
-                <h4>A computer</h4>
-                <p>The one you want to switch. Windows, any age.</p>
+                <h4>The computer you want to switch</h4>
+                <p>Any Windows computer. Old ones work great — BoringOS can make them feel new again.</p>
             </div>
             <div class="included-item">
                 <h4>A USB drive</h4>
-                <p>8GB or larger. Will be erased.</p>
+                <p>8GB or bigger. Check that drawer — you probably have one. Important: everything on it will be erased.</p>
             </div>
             <div class="included-item">
-                <h4>15 minutes</h4>
-                <p>Mostly waiting. The hard part is three clicks.</p>
+                <h4>About 15-20 minutes</h4>
+                <p>Most of that is waiting. The actual clicking takes maybe 5 minutes total.</p>
             </div>
+        </div>
+
+        <div style="background: rgba(255, 107, 0, 0.1); border: 1px solid var(--tennessee-orange); border-radius: 12px; padding: 1.5rem; margin: 2rem 0;">
+            <h4 style="color: var(--tennessee-orange); margin-bottom: 0.5rem;">Important: Back up your files first!</h4>
+            <p style="margin: 0; color: var(--gray-600);">Copy any photos, documents, or files you want to keep to another USB drive, cloud storage, or another computer. BoringOS will replace everything on your computer.</p>
         </div>
     </section>
 
     <!-- Step 1 -->
     <section class="section section-alt">
         <div class="section-inner">
-            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                <div class="step-num" style="font-size: 1.5rem; width: 48px; height: 48px;">1</div>
-                <h2 style="margin-bottom: 0;">Download the file</h2>
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                <div class="step-num" style="font-size: 1.5rem; width: 56px; height: 56px;">1</div>
+                <div>
+                    <h2 style="margin-bottom: 0;">Download the file</h2>
+                    <p style="margin: 0; color: var(--gray-400); font-size: 0.9rem;">This takes 5-10 minutes depending on your internet</p>
+                </div>
             </div>
-            <p>Click the button. Save it anywhere. It's about 3GB.</p>
-            <a href="https://github.com/getboring/boringos/releases" class="cta-btn cta-btn-orange" style="margin-top: 1rem;">
+            <p>Click the button below. Your browser will download a file that's about 3GB — like downloading a movie.</p>
+            <p>Save it somewhere you can find it easily, like your Downloads folder or Desktop.</p>
+            <a href="https://github.com/getboring/boringos/releases" class="cta-btn cta-btn-orange" style="margin-top: 1.5rem;">
                 <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
                 Download BoringOS
             </a>
-            <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--gray-400);">Look for the .iso file in the latest release.</p>
+            <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--gray-400);">On the download page, look for the file ending in ".iso" — that's the one you want.</p>
         </div>
     </section>
 
     <!-- Step 2 -->
     <section class="section section-wide">
-        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-            <div class="step-num" style="font-size: 1.5rem; width: 48px; height: 48px;">2</div>
-            <h2 style="margin-bottom: 0;">Copy it to a USB drive</h2>
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+            <div class="step-num" style="font-size: 1.5rem; width: 56px; height: 56px;">2</div>
+            <div>
+                <h2 style="margin-bottom: 0;">Put it on the USB drive</h2>
+                <p style="margin: 0; color: var(--gray-400); font-size: 0.9rem;">This takes about 5 minutes</p>
+            </div>
         </div>
-        <p>You need a free tool to do this. We recommend <a href="https://etcher.balena.io" target="_blank" rel="noopener" style="color: var(--tennessee-orange);">Balena Etcher</a> — it works on Windows, Mac, and Linux.</p>
+        <p>You can't just copy the file to the USB drive like a normal file. You need a special (free) program to do it properly.</p>
+        <p>We recommend <a href="https://etcher.balena.io" target="_blank" rel="noopener" style="color: var(--tennessee-orange); font-weight: 500;">Balena Etcher</a> — it's free and works on any computer.</p>
 
         <div style="background: var(--gray-100); border-radius: 12px; padding: 2rem; margin: 2rem 0;">
-            <h4 style="margin-bottom: 1rem;">Using Balena Etcher:</h4>
-            <ol style="padding-left: 1.5rem; color: var(--gray-600);">
-                <li style="margin-bottom: 0.75rem;">Open Balena Etcher</li>
-                <li style="margin-bottom: 0.75rem;">Click "Flash from file" → select the BoringOS .iso you downloaded</li>
-                <li style="margin-bottom: 0.75rem;">Click "Select target" → choose your USB drive</li>
-                <li style="margin-bottom: 0.75rem;">Click "Flash!" and wait (2-5 minutes)</li>
+            <h4 style="margin-bottom: 1.5rem;">Here's exactly what to do:</h4>
+            <ol style="padding-left: 1.5rem; color: var(--gray-600); line-height: 2;">
+                <li>Download and open Balena Etcher</li>
+                <li>Click <strong>"Flash from file"</strong> and find the BoringOS file you downloaded</li>
+                <li>Click <strong>"Select target"</strong> and choose your USB drive</li>
+                <li>Click <strong>"Flash!"</strong> and wait a few minutes</li>
+                <li>When it says "Flash Complete!" you're done with this step</li>
             </ol>
         </div>
 
@@ -109,21 +121,34 @@
     <!-- Step 3 -->
     <section class="section section-alt">
         <div class="section-inner">
-            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                <div class="step-num" style="font-size: 1.5rem; width: 48px; height: 48px;">3</div>
-                <h2 style="margin-bottom: 0;">Restart with USB plugged in</h2>
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                <div class="step-num" style="font-size: 1.5rem; width: 56px; height: 56px;">3</div>
+                <div>
+                    <h2 style="margin-bottom: 0;">Start your computer from the USB</h2>
+                    <p style="margin: 0; color: var(--gray-400); font-size: 0.9rem;">This is the trickiest part — but it's still pretty easy</p>
+                </div>
             </div>
-            <p>Plug the USB into the computer you want to switch. Restart it.</p>
-            <p>Most computers will boot from USB automatically. If not, you may need to press a key during startup (usually F12, F2, or Delete) to select the USB drive.</p>
+            <p>Now take that USB drive and plug it into the computer you want to switch to BoringOS.</p>
+            <p>Restart the computer. Usually, it will automatically start from the USB drive and show you the BoringOS installer.</p>
+
+            <h4 style="margin-top: 2rem; margin-bottom: 1rem;">If it just starts Windows normally:</h4>
+            <p>You need to tell your computer to start from the USB. Here's how:</p>
+            <ol style="padding-left: 1.5rem; color: var(--gray-600); line-height: 2; margin: 1rem 0;">
+                <li>Restart your computer again</li>
+                <li>As soon as you see the manufacturer logo, start pressing the boot key (see below)</li>
+                <li>Keep pressing it until you see a menu</li>
+                <li>Choose your USB drive from the list</li>
+            </ol>
 
             <div style="background: rgba(255, 107, 0, 0.1); border: 1px solid var(--tennessee-orange); border-radius: 12px; padding: 1.5rem; margin: 2rem 0;">
-                <h4 style="color: var(--tennessee-orange); margin-bottom: 0.5rem;">Common boot keys by brand:</h4>
-                <ul style="padding-left: 1.5rem; color: var(--gray-600); margin: 0;">
-                    <li>Dell: F12</li>
-                    <li>HP: F9 or Esc</li>
-                    <li>Lenovo: F12</li>
-                    <li>ASUS: F8 or Esc</li>
-                    <li>Acer: F12</li>
+                <h4 style="color: var(--tennessee-orange); margin-bottom: 0.75rem;">Boot keys by computer brand:</h4>
+                <ul style="padding-left: 1.5rem; color: var(--gray-600); margin: 0; line-height: 1.8;">
+                    <li><strong>Dell:</strong> F12</li>
+                    <li><strong>HP:</strong> F9 or Esc</li>
+                    <li><strong>Lenovo:</strong> F12</li>
+                    <li><strong>ASUS:</strong> F8 or Esc</li>
+                    <li><strong>Acer:</strong> F12</li>
+                    <li><strong>Others:</strong> Try F12, F2, F8, or Esc</li>
                 </ul>
             </div>
         </div>
@@ -131,49 +156,43 @@
 
     <!-- Step 4 -->
     <section class="section section-wide">
-        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-            <div class="step-num" style="font-size: 1.5rem; width: 48px; height: 48px;">4</div>
-            <h2 style="margin-bottom: 0;">Answer 5 questions</h2>
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+            <div class="step-num" style="font-size: 1.5rem; width: 56px; height: 56px;">4</div>
+            <div>
+                <h2 style="margin-bottom: 0;">Answer a few questions</h2>
+                <p style="margin: 0; color: var(--gray-400); font-size: 0.9rem;">About 5 minutes of clicking</p>
+            </div>
         </div>
-        <p>The installer asks you five things. That's it.</p>
+        <p>Once you see the BoringOS installer, it will ask you some simple questions. Nothing tricky:</p>
 
-        <div class="steps" style="margin: 2rem 0;">
-            <div class="step">
-                <div class="step-num">1</div>
-                <div class="step-text">
-                    <h4>Language</h4>
-                    <p>What language should menus and apps use?</p>
-                </div>
+        <div class="included-grid" style="margin: 2rem 0;">
+            <div class="included-item">
+                <h4>What language?</h4>
+                <p>Pick your language for menus and apps.</p>
             </div>
-            <div class="step">
-                <div class="step-num">2</div>
-                <div class="step-text">
-                    <h4>Keyboard</h4>
-                    <p>What keyboard layout do you have?</p>
-                </div>
+            <div class="included-item">
+                <h4>What keyboard?</h4>
+                <p>Usually the default is correct. Just click next.</p>
             </div>
-            <div class="step">
-                <div class="step-num">3</div>
-                <div class="step-text">
-                    <h4>Time zone</h4>
-                    <p>Where are you located?</p>
-                </div>
+            <div class="included-item">
+                <h4>Where are you?</h4>
+                <p>Pick your time zone so the clock is right.</p>
             </div>
-            <div class="step">
-                <div class="step-num">4</div>
-                <div class="step-text">
-                    <h4>Your name and password</h4>
-                    <p>Create your user account.</p>
-                </div>
+            <div class="included-item">
+                <h4>What's your name?</h4>
+                <p>This is for your user account. Pick any name you want.</p>
             </div>
-            <div class="step">
-                <div class="step-num">5</div>
-                <div class="step-text">
-                    <h4>Which drive</h4>
-                    <p>Where to install. Usually there's only one choice.</p>
-                </div>
+            <div class="included-item">
+                <h4>Pick a password</h4>
+                <p>You'll use this to log in. Don't forget it!</p>
+            </div>
+            <div class="included-item">
+                <h4>Where to install?</h4>
+                <p>Usually there's only one option. Click it and continue.</p>
             </div>
         </div>
+
+        <p>Then click <strong>Install</strong> and wait about 10 minutes. The computer will do its thing.</p>
 
         <div class="screenshot">
             <div class="screenshot-placeholder">
@@ -186,14 +205,18 @@
     <!-- Step 5 -->
     <section class="section section-alt">
         <div class="section-inner">
-            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                <div class="step-num" style="font-size: 1.5rem; width: 48px; height: 48px;">5</div>
-                <h2 style="margin-bottom: 0;">Done</h2>
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                <div class="step-num" style="font-size: 1.5rem; width: 56px; height: 56px;">5</div>
+                <div>
+                    <h2 style="margin-bottom: 0;">You're done!</h2>
+                    <p style="margin: 0; color: var(--gray-400); font-size: 0.9rem;">Seriously, that's it</p>
+                </div>
             </div>
-            <p>Remove the USB. Restart. Your computer now runs BoringOS.</p>
-            <p>Everything is ready. Firefox, email, office apps, photos, music — all installed.</p>
+            <p>When the installer finishes, it will ask you to restart. Remove the USB drive and click Restart.</p>
+            <p>Your computer will start up with BoringOS. Everything is ready to go — web browser, email, documents, photos, music. It's all there.</p>
+            <p style="margin-top: 2rem; font-weight: 500;">Welcome to your new, calmer computer.</p>
 
-            <div class="screenshot">
+            <div class="screenshot" style="margin-top: 2rem;">
                 <div class="screenshot-placeholder">
                     <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
                     <span>BoringOS desktop screenshot coming soon</span>
@@ -202,50 +225,50 @@
         </div>
     </section>
 
-    <!-- After Install -->
+    <!-- First Things to Do -->
     <section class="section section-wide">
-        <h2>After you install</h2>
-        <p>A few things you might want to do first.</p>
+        <h2>First things to do.</h2>
+        <p>You're up and running. Here are some things you might want to do right away:</p>
 
         <div class="included-grid" style="margin-top: 2rem;">
             <div class="included-item">
                 <h4>Connect to WiFi</h4>
-                <p>Click the system menu in the top-right corner.</p>
+                <p>Click the icons in the top-right corner of your screen. Your WiFi networks will show up there.</p>
             </div>
             <div class="included-item">
-                <h4>Copy your files</h4>
-                <p>Plug in a USB drive with your documents, photos, music.</p>
+                <h4>Copy your files over</h4>
+                <p>Remember that backup you made? Plug in that USB drive and drag your files to your new Documents and Pictures folders.</p>
             </div>
             <div class="included-item">
-                <h4>Set up email</h4>
-                <p>Open Thunderbird. Add your Gmail, Yahoo, or Outlook account.</p>
+                <h4>Set up your email</h4>
+                <p>Click the mail app in the dock. Add your Gmail, Yahoo, Outlook, or other email account.</p>
             </div>
             <div class="included-item">
-                <h4>Browse the App Store</h4>
-                <p>Thousands of free apps. Click "Software" in the dock.</p>
+                <h4>Explore</h4>
+                <p>Click around. Open the app menu. See what's there. You can't break anything by exploring.</p>
             </div>
         </div>
     </section>
 
-    <!-- FAQ -->
+    <!-- Common Questions -->
     <section class="section section-alt">
         <div class="section-inner">
-            <h2 style="text-align: center; margin-bottom: 2rem;">Questions?</h2>
+            <h2>Questions people ask.</h2>
             <div class="faq-item">
-                <h4>"What happens to Windows?"</h4>
-                <p>It gets replaced. This is a clean install, not a dual-boot. Back up anything you want to keep.</p>
+                <h4>"I'm stuck on step 3. The computer just starts Windows."</h4>
+                <p>This is the most common hiccup. Try pressing the boot key (F12, F9, etc.) repeatedly right when you see the computer brand logo. You need to catch it in the first few seconds after restart.</p>
             </div>
             <div class="faq-item">
-                <h4>"Can I undo this?"</h4>
-                <p>Yes. You can reinstall Windows later if you want. But most people don't.</p>
+                <h4>"What if I change my mind later?"</h4>
+                <p>You can always reinstall Windows. You'd need to download Windows from Microsoft and follow a similar process. Your computer isn't locked to BoringOS forever.</p>
             </div>
             <div class="faq-item">
-                <h4>"What if something goes wrong?"</h4>
-                <p>The installer is pretty foolproof. If you get stuck, the worst case is you reinstall Windows.</p>
+                <h4>"Something went wrong during installation."</h4>
+                <p>It happens rarely, but if it does, your computer isn't damaged. You can try again from the beginning, or reinstall Windows if you prefer. The hardware is fine.</p>
             </div>
             <div class="faq-item">
-                <h4>"Do I need to be tech-savvy?"</h4>
-                <p>No. If you can follow these 5 steps, you can do it.</p>
+                <h4>"My [printer/scanner/something else] doesn't work."</h4>
+                <p>Most things work automatically. If something doesn't, try unplugging it and plugging it back in. Still no luck? Search online for "[device name] Linux" — there's usually a solution.</p>
             </div>
         </div>
     </section>
@@ -253,17 +276,20 @@
     <!-- CTA -->
     <section class="cta-section" id="download">
         <h2>Ready?</h2>
-        <p>15 minutes. One USB drive. Free forever.</p>
-        <a href="https://github.com/getboring/boringos/releases" class="cta-btn">
+        <p>You've got this. 15 minutes and a USB drive.</p>
+        <a href="https://github.com/getboring/boringos/releases" class="cta-btn" style="font-size: 1.1rem; padding: 1.25rem 2.5rem;">
             <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-            Download BoringOS
+            Download BoringOS Free
         </a>
+        <p style="margin-top: 2rem;">
+            <a href="/what-is-this" style="color: rgba(255,255,255,0.7);">Still have questions? Learn more about BoringOS →</a>
+        </p>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>BoringOS: Mockingbird. Free forever.</p>
-        <p>Built with <a href="https://universal-blue.org" target="_blank" rel="noopener">Universal Blue</a> and <a href="https://blue-build.org" target="_blank" rel="noopener">BlueBuild</a>, based on <a href="https://fedoraproject.org" target="_blank" rel="noopener">Fedora</a>.</p>
+        <p>BoringOS. Free forever.</p>
+        <p style="font-size: 0.8rem; margin-top: 0.5rem;">Built on <a href="https://fedoraproject.org" target="_blank" rel="noopener">Fedora</a>.</p>
     </footer>
 </body>
 </html>
